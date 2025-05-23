@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan Ari & Amalina</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: #fff8f0;
+      overflow-x: hidden;
+      animation: fadeIn 3s ease-in;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    .cover {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: url('https://www.transparenttextures.com/patterns/flowers.png');
+      animation: blossom 3s ease-in-out;
+    }
+    @keyframes blossom {
+      0% {transform: scale(0.95); opacity: 0;}
+      100% {transform: scale(1); opacity: 1;}
+    }
+    h1, h2, h3 {
+      font-family: 'Great Vibes', cursive;
+      color: #7c3aed;
+    }
+    .container {
+      padding: 2rem;
+      text-align: center;
+    }
+    .countdown {
+      font-size: 1.5rem;
+      color: #dc2626;
+      margin: 1rem 0;
+    }
+    .button {
+      background: #7c3aed;
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+    .jawa-animation {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Wayang_Kulit.svg/200px-Wayang_Kulit.svg.png') no-repeat center center;
+      background-size: contain;
+      width: 100px;
+      height: 100px;
+      animation: spin 10s linear infinite;
+      margin: auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <h1>Ari & Amalina</h1>
+    <p>Dengan hormat, Kami yang berbahagia mengundang anda untuk berhadir dalam acara istimewa kami</p>
+    <div class="jawa-animation"></div>
+    <audio autoplay loop>
+      <source src="https://www.dropbox.com/s/abcd1234/akad_payung_teduh.mp3?raw=1" type="audio/mpeg">
+      Browser anda tidak mendukung audio.
+    </audio>
+  </div>
+  <div class="container">
+    <h2>Detail Acara</h2>
+    <p><strong>Akad Nikah:</strong> 31 Mei 2025</p>
+    <p><strong>Resepsi:</strong> 1 Juni 2025</p>
+    <p><strong>Tempat:</strong> Rumah Mempelai Pria, Jl. Trans Kalimantan Komp. Subur Bastari No.38 <a href="https://maps.app.goo.gl/QP6nUo3ZXbmwjVME8" target="_blank">[Lihat Peta]</a></p>
+
+    <h3>Hitung Mundur</h3>
+    <div class="countdown" id="countdown"></div>
+
+    <h3>RSVP</h3>
+    <p>Hubungi Thoni via WhatsApp: <a href="https://wa.me/6289639649980" class="button">Kirim RSVP</a></p>
+
+    <p style="margin-top:2rem;">Terima kasih atas perhatian dan doanya. Semoga kehadiran Anda membawa kebahagiaan dan berkah bagi kami.</p>
+  </div>
+
+  <script>
+    // Countdown
+    const countdown = document.getElementById('countdown');
+    const eventDate = new Date('2025-05-31T00:00:00');
+    const timer = setInterval(() => {
+      const now = new Date();
+      const diff = eventDate - now;
+      if (diff <= 0) {
+        clearInterval(timer);
+        countdown.innerHTML = 'Hari Bahagia Telah Tiba!';
+      } else {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / 1000 / 60) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+        countdown.innerHTML = `${days} hari ${hours} jam ${minutes} menit ${seconds} detik`;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
